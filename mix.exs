@@ -31,7 +31,7 @@ defmodule EchoBot.Mixfile do
     [{:phoenix, "~> 1.1.4"},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:ex_microsoftbot, github: "zabirauf/ex_microsoftbot"},
-     {:phoenix_microsoftbot, github: "zabirauf/phoenix_microsoftbot"}]
+     {:ex_microsoftbot, "~> 0.1.0"},
+     {:phoenix_microsoftbot, "~> 0.1.0"}]
   end
 end

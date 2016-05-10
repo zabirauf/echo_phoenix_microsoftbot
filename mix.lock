@@ -1,11 +1,11 @@
 %{"cowboy": {:hex, :cowboy, "1.0.4"},
   "cowlib": {:hex, :cowlib, "1.0.2"},
-  "ex_microsoftbot": {:git, "https://github.com/zabirauf/ex_microsoftbot.git", "09b23dec6bf55c7c7d411e9afebeb49dfb8acd1f", []},
+  "ex_microsoftbot": {:hex, :ex_microsoftbot, "0.1.0"},
   "gettext": {:hex, :gettext, "0.11.0"},
   "httpotion": {:hex, :httpotion, "2.2.2"},
   "ibrowse": {:hex, :ibrowse, "4.2.2"},
   "phoenix": {:hex, :phoenix, "1.1.4"},
-  "phoenix_microsoftbot": {:git, "https://github.com/zabirauf/phoenix_microsoftbot.git", "91c2722a6bf8a9b45a46877d64a1fe9d7a338d41", []},
+  "phoenix_microsoftbot": {:hex, :phoenix_microsoftbot, "0.1.0"},
   "plug": {:hex, :plug, "1.1.4"},
   "poison": {:hex, :poison, "2.1.0"},
   "ranch": {:hex, :ranch, "1.2.1"}}
