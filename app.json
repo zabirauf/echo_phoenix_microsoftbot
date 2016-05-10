@@ -1,0 +1,33 @@
+{
+  "name": "Elixir microsoft bot framework echo bot",
+  "description": "This is an echo bot created using Phoenix framework and Microsoft bot framework.",
+  "repository": "https://github.com/zabirauf/echo_phoenix_microsoftbot",
+  "keywords": [
+    "elixir",
+    "microsoft",
+    "messenger",
+    "bot",
+    "facebook"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+    },
+    {
+      "url": "https://github.com/gjaldon/heroku-buildpack-phoenix-static.git"
+    }
+  ],
+  "env": {
+    "APP_ID": {
+      "description": "The Microsoft bot app id",
+      "value": "APP_ID"
+    },
+    "APP_SECRET": {
+      "description": "The Microsoft bot app secret",
+      "value": "APP_SECRET"
+    },
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    }
+  }
+}
