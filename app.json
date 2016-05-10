@@ -1,5 +1,5 @@
 {
-  "name": "Elixir microsoft bot framework echo bot",
+  "name": "Elixir echo bot MBF",
   "description": "This is an echo bot created using Phoenix framework and Microsoft bot framework.",
   "repository": "https://github.com/zabirauf/echo_phoenix_microsoftbot",
   "keywords": [
