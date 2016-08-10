@@ -28,7 +28,8 @@ defmodule EchoBot.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.1.4"},
+    [{:phoenix, "~> 1.2.0"},
+     {:phoenix_html, "~> 2.6"},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:ex_microsoftbot, github: "zabirauf/ex_microsoftbot", branch: "botV3", override: true},

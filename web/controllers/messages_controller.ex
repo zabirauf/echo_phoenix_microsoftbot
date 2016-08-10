@@ -27,7 +27,7 @@ defmodule EchoBot.MessagesController do
     Logger.debug "Spawning sender"
     spawn fn ->
       Logger.debug "Going to send to #{activity.conversation.id} => #{activity.id}"
-      resp = Conversations.reply_to_activity(activity.conversation.id, activity.id, %Activity{recipient: activity.from, from: activity.recipient, replyToId: activity.id, text: text})
+      resp = Conversations.send_to_conversation(activity.serviceUrl, activity.conversation.id, %Activity{type: "message", recipient: activity.from, from: activity.recipient, replyToId: activity.id, text: text})
       Logger.debug "......"
 
       Logger.debug "Response from reply_to_activity: #{inspect(resp)}"
