@@ -22,9 +22,9 @@
       "description": "The Microsoft bot app id",
       "value": "APP_ID"
     },
-    "APP_SECRET": {
-      "description": "The Microsoft bot app secret",
-      "value": "APP_SECRET"
+    "APP_PASSWORD": {
+      "description": "The Microsoft bot app password",
+      "value": "APP_PASSWORD"
     },
     "SECRET_KEY_BASE": {
       "generator": "secret"
