@@ -23,10 +23,4 @@ config :logger, level: :debug
 
 config :ex_microsoftbot,
   app_id: System.get_env("APP_ID"),
-  app_password: System.get_env("APP_PASSWORD"),
-  endpoint: "https://api.botframework.com",
-  openid_valid_keys_url: "https://api.aps.skype.com/v1/.well-known/openidconfiguration",
-  issuer_claim: "https://api.botframework.com",
-  audience_claim: System.get_env("APP_ID"),
-  disable_token_validation: false
-
+  app_password: System.get_env("APP_PASSWORD")
