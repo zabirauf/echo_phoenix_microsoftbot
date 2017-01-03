@@ -1,46 +1,36 @@
 defmodule EchoBot.MessagesController do
+  require Logger
   use MicrosoftBot.Phoenix.Controller
-  alias ExMicrosoftBot.Models.Message
-  alias ExMicrosoftBot.Client
+  alias ExMicrosoftBot.Models.Activity
+  alias ExMicrosoftBot.Client.Conversations
 
-  def message_received(conn, %Message{} = message) do
-    {new_text, is_delayed} = get_echo_message(message.text)
-    send_message_back(conn, message, new_text, is_delayed)
+  def message_received(conn, %Activity{} = activity) do
+    new_text = get_echo_message(activity.text)
+    Logger.info "Text received: #{activity.text}"
+    send_message_back(conn, activity, new_text)
   end
 
   defp get_echo_message(nil) do
-    {"ECHO: (empty)", false}
-  end
-
-  defp get_echo_message("delayed " <> _ = text) do
-    {"ECHO: " <> text, true}
+    "ECHO: (empty)"
   end
 
   defp get_echo_message(text) do
-    {"ECHO: " <> text, false}
+    "ECHO: " <> text
   end
 
-  defp send_message_back(conn, %Message{} = message, text, true) do
-    spawn_sender(conn, message, text)
+  defp send_message_back(conn, %Activity{} = activity, text) do
+    spawn_sender(conn, activity, text)
     resp(conn, 200, "")
   end
 
-  defp send_message_back(_conn, %Message{} = _, text, false) do
-    %{text: text}
-  end
-
-  defp spawn_sender(_conn, %Message{} = message, text) do
+  defp spawn_sender(_conn, %Activity{} = activity, text) do
+    Logger.debug "Spawning sender"
     spawn fn ->
-      :timer.sleep(5000) # Wait for 5 seconds
-      get_bot_auth_data
-      |> Client.send_message(%{to: message.from, from: message.to, replyToMessageId: message.id, text: "DELAYED -> " <> text})
-    end
-  end
+      Logger.debug "Going to send to #{activity.conversation.id} => #{activity.id}"
+      resp = Conversations.send_to_conversation(activity.serviceUrl, activity.conversation.id, %Activity{type: "message", recipient: activity.from, from: activity.recipient, replyToId: activity.id, text: text})
+      Logger.debug "......"
 
-  defp get_bot_auth_data() do
-    %ExMicrosoftBot.Models.AuthData{
-      app_id: Application.get_env(:microsoftbot, :app_id),
-      app_secret: Application.get_env(:microsoftbot, :app_secret)
-    }
+      Logger.debug "Response from reply_to_activity: #{inspect(resp)}"
+    end
   end
 end

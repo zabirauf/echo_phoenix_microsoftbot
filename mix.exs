@@ -3,7 +3,7 @@ defmodule EchoBot.Mixfile do
 
   def project do
     [app: :echo_bot,
-     version: "0.0.1",
+     version: "1.0.0",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -28,10 +28,11 @@ defmodule EchoBot.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.1.4"},
+    [{:phoenix, "~> 1.2.0"},
+     {:phoenix_html, "~> 2.6"},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:ex_microsoftbot, "~> 0.1.0"},
-     {:phoenix_microsoftbot, "~> 0.1.0"}]
+     {:ex_microsoftbot, "~> 1.0.0"},
+     {:phoenix_microsoftbot, "~> 1.0.0"}]
   end
 end

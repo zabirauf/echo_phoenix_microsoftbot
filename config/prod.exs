@@ -13,15 +13,14 @@ use Mix.Config
 # which you typically run after static files are built.
 config :echo_bot, EchoBot.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [scheme: "https", host: "yourapp.herokuapp.com", port: 443],
+  url: [scheme: "https", host: "koinbot.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 
 # Do not print debug messages in production
-config :logger, level: :info
+config :logger, level: :warn
 
-config :microsoftbot,
+config :ex_microsoftbot,
   app_id: System.get_env("APP_ID"),
-  app_secret: System.get_env("APP_SECRET")
+  app_password: System.get_env("APP_PASSWORD")
