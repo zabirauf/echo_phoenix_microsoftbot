@@ -3,7 +3,7 @@ defmodule EchoBot.Mixfile do
 
   def project do
     [app: :echo_bot,
-     version: "0.0.1",
+     version: "1.0.0",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -32,7 +32,7 @@ defmodule EchoBot.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:ex_microsoftbot, github: "zabirauf/ex_microsoftbot", branch: "botV3", override: true},
-     {:phoenix_microsoftbot, github: "zabirauf/phoenix_microsoftbot", branch: "botV3"}]
+     {:ex_microsoftbot, "~> 1.0.0"},
+     {:phoenix_microsoftbot, "~> 1.0.0"}]
   end
 end

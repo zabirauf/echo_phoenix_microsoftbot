@@ -19,7 +19,7 @@ config :echo_bot, EchoBot.Endpoint,
 
 
 # Do not print debug messages in production
-config :logger, level: :debug
+config :logger, level: :warn
 
 config :ex_microsoftbot,
   app_id: System.get_env("APP_ID"),
